@@ -19,7 +19,7 @@ import sphinx_rtd_theme
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
 
@@ -39,7 +39,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['../templates']
+templates_path = ['../template']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -270,8 +270,8 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
+# Inter-project configuration
 
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {
-    'python':     ('http://docs.python.org/2/', None),
-}
+import intersphinx
+
+intersphinx_mapping = intersphinx.get_mapping()
