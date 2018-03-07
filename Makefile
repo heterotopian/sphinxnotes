@@ -8,7 +8,7 @@ AUTOOPTS    = --host 0.0.0.0 --poll --ignore "*.sw?" --watch static --watch temp
 AUTOBUILD   = sphinx-autobuild
 PAPER       =
 BUILDDIR    = build
-OUTDIR 		= $(BUILDDIR)
+OUTDIR      = $(BUILDDIR)
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
