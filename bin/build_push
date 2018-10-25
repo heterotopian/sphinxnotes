@@ -1,0 +1,25 @@
+#!/bin/bash -eu
+
+WORKBRANCH=$(dirname $(dirname $(readlink -f "${BASH_SOURCE[0]}")))
+PAGESBRANCH=${PAGESBRANCH:-${WORKBRANCH}-build}
+BUILDTMP=$(mktemp -d)
+
+cleanup() {
+    rm -r "${BUILDTMP}"
+}
+
+trap cleanup EXIT
+
+# Build site
+
+cd "${WORKBRANCH}"
+make html BUILDDIR="${BUILDTMP}"
+
+# Commit pages
+
+(cd "${PAGESBRANCH}" && git pull --rebase)
+cp -R "${BUILDTMP}"/html/* "${PAGESBRANCH}"
+cd "${PAGESBRANCH}"
+git add --all .
+git commit -am "New build"
+git push origin gh-pages
