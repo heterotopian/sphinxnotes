@@ -1,0 +1,1 @@
+Search.setIndex({envversion:47,filenames:["doc","index"],objects:{},objnames:{},objtypes:{},terms:{content:[0,1],index:1,page:1,search:1},titles:["Document","Sphinx Notes"],titleterms:{document:0,gener:0,indic:1,note:1,sphinx:1,tabl:1}})
